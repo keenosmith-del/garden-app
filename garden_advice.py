@@ -6,22 +6,34 @@ plant_type = input("Enter plant type: ").lower()  # TODO: Replace with input() t
 advice = ""
 
 # Determine advice based on the season
-if season == "summer":
-    advice += "Water your plants regularly and provide some shade.\n"
-elif season == "winter":
-    advice += "Protect your plants from frost with covers.\n"
-else:
-    advice += "No advice for this season.\n"
+def get_season_advice(season):
+    if season == "summer":
+        return "Water your plants regularly and provide some shade.\n"
+    elif season == "winter":
+        return "Protect your plants from frost with covers.\n"
+    else:
+        return "No advice for this season.\n"
 
-# Determine advice based on the plant type
-if plant_type == "flower":
-    advice += "Use fertiliser to encourage blooms."
-elif plant_type == "vegetable":
-    advice += "Keep an eye out for pests!"
-else:
-    advice += "No advice for this type of plant."
 
-# Print the generated advice
+def get_plant_advice(plant_type):
+    if plant_type == "flower":
+        return "Use fertiliser to encourage blooms."
+    elif plant_type == "vegetable":
+        return "Keep an eye out for pests!"
+    else:
+        return "No advice for this type of plant."
+
+
+# Get user input
+season = input("Enter the season: ").lower()
+plant_type = input("Enter the plant type: ").lower()
+
+# Generate advice
+advice = ""
+advice += get_season_advice(season)
+advice += get_plant_advice(plant_type)
+
+# Print result
 print(advice)
 
 # TODO: Examples of possible features to add:
